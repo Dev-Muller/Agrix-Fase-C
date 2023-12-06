@@ -3,6 +3,8 @@ package com.betrybe.agrix.advice;
 import com.betrybe.agrix.exception.CropNotFoundException;
 import com.betrybe.agrix.exception.FarmNotFoundException;
 import com.betrybe.agrix.exception.FertilizerNotFoundException;
+import com.betrybe.agrix.exception.PersonNotFoundException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -27,17 +29,24 @@ public class GeneralControllerAdvice {
     return new ResponseEntity<>("Plantação não encontrada!", HttpStatus.NOT_FOUND);
   }
 
-  @ExceptionHandler(Exception.class)
-  @ResponseBody
-  public ResponseEntity<String> handleException(Exception exception) {
-    return new ResponseEntity<>("Erro interno!", HttpStatus.INTERNAL_SERVER_ERROR);
-  }
+  // @ExceptionHandler(Exception.class)
+  // @ResponseBody
+  // public ResponseEntity<String> handleException(Exception exception) {
+  //   return new ResponseEntity<>("Erro interno!", HttpStatus.INTERNAL_SERVER_ERROR);
+  // }
 
   @ExceptionHandler(FertilizerNotFoundException.class)
   @ResponseBody
   public ResponseEntity<String> handleFertilizerNotFoundException(
       FertilizerNotFoundException exception) {
     return new ResponseEntity<>("Fertilizante não encontrado!", HttpStatus.NOT_FOUND);
+  }
+
+  @ExceptionHandler(PersonNotFoundException.class)
+  @ResponseBody
+  public ResponseEntity<String> handlePersonNotFoundException(
+      PersonNotFoundException exception) {
+    return new ResponseEntity<>("Pessoa não encontrada!", HttpStatus.NOT_FOUND);
   }
 
 }

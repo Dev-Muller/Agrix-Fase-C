@@ -19,12 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/persons")
-public class PersonsController {
+public class PersonController {
 
   @Autowired
   private final PersonService personService;
 
-  public PersonsController(PersonService personService) {
+  public PersonController(PersonService personService) {
     this.personService = personService;
   }
 
