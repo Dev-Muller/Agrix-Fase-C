@@ -26,7 +26,20 @@ public class Person {
 
   private Role role;
 
+  /**
+   * Default constructor.
+   */
   public Person() {
+  }
+
+  /**
+   * Constructor with parameters.
+   */
+  public Person(Long id, String username, String password, Role role) {
+    this.id = id;
+    this.username = username;
+    this.password = password;
+    this.role = role;
   }
 
   public Long getId() {
